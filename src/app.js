@@ -61,7 +61,20 @@ function sweetTooth(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMet
 //Progression 5:
 //As Lily moves closer, it gets colder. She checks the temperature on her mobile
 //It only shows in fahrenheit. Convert the data to celsius and return it.
-
+//returns technical error if the argument passed is a string or a object or undefined else returns celsius for the fahernheit given
+function convertToCelsius(fahrenheit) {
+    if (
+      typeof fahrenheit == "string" ||
+      typeof fahrenheit == "undefined" ||
+      typeof fahrenheit == "object"
+    ) {
+      return "Technical Error!";
+    } else {
+        let celcius=(5 / 9) * (fahrenheit - 32);
+      return  celcius 
+    }
+  }
+    
 //Progression 6:
 //Lily can now do multiple things to deal with this
 //1. Take her daughter to a doctor
@@ -69,6 +82,30 @@ function sweetTooth(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMet
 //3. Counsel her daughter herself
 //4. Lock her daughter in her room
 //Given a value, return which of these above actions Lily would take
+function aDifficultChoice(choice) {
+    switch (choice) {
+      case 1:
+        return "Take her daughter to a doctor";
+        break;
+      case 2:
+        return "Talk to her husband about it";
+        break;
+      case 3:
+        return "Counsel her daughter herself";
+        break;
+      case 4:
+        return "Lock her daughter in her room";
+        break;
+      case -1:
+        return "Break down and give up all hope";
+        break;
+      case undefined:
+        return "Wasn't able to decide";
+        break;
+      default:
+        return "Refused to do anything for Karen";
+    }
+  }
 
 //Progression 7:
 //Lily realized that she'd hurt her daughter
