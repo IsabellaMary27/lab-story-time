@@ -51,12 +51,20 @@ function doesFriendExist(ageInText, ageInNumber)
 //On her way to the river, she ate another z sweets every n meters travelled
 //Her friend divided the remaining sweets into 2 parts for each
 //How many sweets did her friend get to eat?
-
-function sweetTooth(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMeters, metersToTravel)
-{
-    var remaining=(totalNoOfSweets-(sweetsConsumedByKaren+sweetsConsumedInNMeters*metersToTravel))/2;
-    return remaining;
+function sweetTooth(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMeters, metersToTravel) {
+  totalNoOfSweets = totalNoOfSweets - sweetsConsumedByKaren;
+  let x = metersToTravel * sweetsConsumedInNMeters;
+  if (totalNoOfSweets == NaN || sweetsConsumedByKaren == NaN || sweetsConsumedInNMeters == NaN || metersToTravel == NaN) {
+      return "No sweets for Karen's friend";
+  }
+  if (x <= totalNoOfSweets) {
+      totalNoOfSweets = totalNoOfSweets - x;
+      return totalNoOfSweets / 2;
+  } else {
+      return "No sweets for Karen's friend";
+  }
 }
+
 
 //Progression 5:
 //As Lily moves closer, it gets colder. She checks the temperature on her mobile
@@ -115,3 +123,11 @@ function aDifficultChoice(choice) {
 //Take all of Lily's strategies and concatenate them to a single var
 //Seperate the strategies by a single space
 //Return the length of the complete strategy
+function consoleKaren(strategies) {
+  let a = ``;
+  for (let i = 0; i < strategies.length; i++) {
+      a += strategies[i] + " ";
+      var length = a.length;
+      return length;
+  }
+}
